@@ -16,7 +16,7 @@
 		>
 			<v-flex class=" white px-2" xs4>
 				<div>
-					<h3 class= "disabled">Number of orders</h3>
+					<h3 class= "grey--text">Number of orders</h3>
 				</div>
 				<div class=" justify-space-between">
 					<v-card flat ><v-vard-content> 5234</v-vard-content> </v-card>
@@ -25,12 +25,12 @@
 					</v-card>
 				</div>
 			</v-flex>
-			<v-flex class=" white" xs4>
+			<v-flex class=" white" xs4 px-3>
 				<div>
-					<h3 class= "disabled">Completed orders</h3>
+					<h3 class= " grey--text">Completed orders</h3>
 				</div>
 				<div class=" justify-space-between">
-					<v-card flat><v-vard-content> 2234</v-vard-content></v-card>
+					<v-card flat style="min-height:'200'"><v-vard-content> 2234</v-vard-content></v-card>
 					<v-card flat class=" transparent right" style="width:40%">
 						<v-img :src= "require('../assets/Bar Chart-1.svg')"></v-img>
 					</v-card>
@@ -38,7 +38,7 @@
 			</v-flex>
 			<v-flex class=" white" xs4>
 				<div>
-					<h3 class= "disabled">Abandoned orders</h3>
+					<h3 class= "grey--text">Abandoned orders</h3>
 				</div>
 				<div class=" justify-space-between">
 					<v-card flat class=" align-center"><v-vard-content> 2343</v-vard-content></v-card>
@@ -48,14 +48,16 @@
 				</div>
 			</v-flex>
 		</v-layout>
-		<v-layout mt-4 pt-4>
+		<v-layout mx-1 pt-4><h1>Orders History</h1></v-layout>
+		<v-layout mt-4 pt-2>
 			<v-card flat pa-4 style="width:100%">
-				<v-layout pt-2><h1>Orders History</h1></v-layout>
+				
+				
 				<table style="width:100%"
-						class="elevation-1 align-content-space-between"
+						class="elevation-0 align-content-space-between justify-center ml-3"
 					>
 				<!-- <v-layout pt-2 > -->
-					<tr v-for="stuff in order.filter(item=>item.head)" :key= 'stuff.head'> 
+					<tr v-for="stuff in order.filter(item=>item.head)" :key= 'stuff.head' class=" grey--text"> 
 						<th>{{stuff.order_id}}</th>
 						<th>{{stuff.description}}</th>
 						<th>{{stuff.payment_method}}</th>
