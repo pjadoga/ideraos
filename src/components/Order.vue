@@ -4,9 +4,40 @@
 			<v-card flat tag= "h2" class=" transparent blue--text">{{title}}</v-card>
 			<v-spacer></v-spacer>
 			<v-card >
-				<v-card-text contenteditable >
-					10/06/2019 - 05:28
-				</v-card-text>
+				<!-- <v-card-text contenteditable >
+					10/06/2019 - 05:28-->
+          <v-flex xs12 sm6 md4>
+            <v-menu
+              v-model= "menu"
+              :close-on-content-click= "false"
+              :nudge-right= "40"
+              lazy
+              transition= "scale-transition"
+              offset-y
+              full-width
+              min-width= "290px"
+            >
+              <template
+                v-slot:activator= "{on}"
+              >
+                <v-text-field
+                  v-model="date"
+                  label="Picker without buttons"
+                  prepend-icon= "event"
+                  readonly
+                  v-on="on"
+                >
+                </v-text-field>
+              </template>
+              <v-date-picker
+                v-model="date"
+                @input="menu=false"
+              >
+
+              </v-date-picker>
+            </v-menu>
+          </v-flex>
+			<!--	</v-card-text> -->
 				<!-- <v-date-picker tag= "button" class=" date">
 				</v-date-picker> -->
 			</v-card>
@@ -51,12 +82,9 @@
 		<v-layout mx-1 pt-4><h1>Orders History</h1></v-layout>
 		<v-layout mt-4 pt-2>
 			<v-card flat pa-4 style="width:100%">
-				
-				
 				<table style="width:100%"
-						class="elevation-0 align-content-space-between justify-center ml-3"
-					>
-				<!-- <v-layout pt-2 > -->
+					class="elevation-0 align-content-space-between justify-center ml-3"
+				>
 					<tr v-for="stuff in order.filter(item=>item.head)" :key= 'stuff.head' class=" grey--text"> 
 						<th>{{stuff.order_id}}</th>
 						<th>{{stuff.description}}</th>
@@ -66,8 +94,6 @@
 						<th>{{stuff.date}}</th>
 						<th>{{stuff.status}}</th>
 					</tr>
-				<!-- </v-layout>
-				<v-layout > -->
 					<tr v-for="stuff in order.filter(item=>item.body)" :key= 'stuff.order_id'>
 						<td>{{stuff.order_id}}</td>
 						<td>{{stuff.description}}</td>
@@ -89,7 +115,7 @@
 								round
 								v-else-if= "stuff.status=='Completed'"
 								class="green"
-								>
+							>
 								{{stuff.status}}
 							</v-btn>
 							<v-btn 
@@ -102,16 +128,19 @@
 							</v-btn>
 						</td>
 					</tr>
-				<!-- </v-layout> -->
 				</table>
 			</v-card>
 		</v-layout>
 	</v-container>
 </template>
+
 <script>
 export default {
 	data:()=>({
-		title: 'Orders',
+    title: 'Orders',
+    date: new Date().toISOString().substr(0, 10),
+    modal: false,
+    menu: false,
 		order:[
 			{
 				order_id: '	ORDER ID', 

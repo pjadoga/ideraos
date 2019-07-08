@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h1>This is our indight page</h1>
+    <h1>This is our insight page</h1>
   </div>
 </template>
 

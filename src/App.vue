@@ -47,11 +47,11 @@
           <v-img :src = "require('@/assets/logo.svg')" style=" width: 50%"/>
         </v-card>
       </v-toolbar-title>
-      Search:
+      <label>Search:</label>
       <v-text-field
         solo-inverted
         round
-        prepend-inner-icon="search"
+        append-inner-icon="search"
         label="Search"
         class=" blue--text darken-5"
       ></v-text-field>
@@ -64,9 +64,9 @@
       </v-btn>
       <span > Username</span>
       <v-btn icon large>
-        <v-avatar size="32px" tile>
+        <!-- <v-avatar size="32px" tile> -->
           <v-icon>account_circle</v-icon>
-        </v-avatar>
+        <!-- </v-avatar> -->
       </v-btn>
     </v-toolbar>
     <v-content>
@@ -76,7 +76,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'App',
     data () {

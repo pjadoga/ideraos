@@ -30,7 +30,7 @@
           <a btn
             :href= "'#orders'"
             class=" title mx-3"
-            target="_blank"
+            target="_nofollow"
           >
             Click to Check Orders
           </a>
